@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loader</title>
+    <style>
+      .welcome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+      }
+      .welcome-text {
+        font-family: sans-serif;
+        font-weight: 900;
+        text-align: center;
+        font-size: 4em;
+        text-transform: uppercase;
+        background-image: url("https://media.istockphoto.com/photos/beautiful-flowers-background-picture-id520700958?k=20&m=520700958&s=612x612&w=0&h=fTWRwsQ_vxzlzR0MGkLPGzqolbbpbj4x-VOL9FmEz3A=");
+        background-size: cover;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      /* toggle style ends here */
+
+      .main {
+        opacity: 0;
+        display: none;
+        transition: opacity 1s ease-in;
+      }
+      .loader {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(255, 253, 253);
+      }
+      .loader img {
+        width: 450px;
+      }
+      @media (max-width: 425px) {
+        .loader img {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!------------ STARTS : => loader 1 --------->
+    <div class="page_loader">
+      <div class="loader">
+        <img
+          src="https://i.pinimg.com/originals/2c/bb/5e/2cbb5e95b97aa2b496f6eaec84b9240d.gif"
+          alt="loader"
+        />
+      </div>
+    </div>
+    <div class="main">
+      <div class="welcome">
+        <h3 class="welcome-text">Welcome</h3>
+      </div>
+    </div>
+    <script>
+      // loader script
+      const loader = document.querySelector(".loader");
+      const main_content = document.querySelector(".main");
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          loader.style.opacity = 0;
+          loader.style.display = "none";
+
+          main_content.style.display = "block";
+          setTimeout(() => (main_content.style.opacity = 1), 50);
+        }, 4000);
+      });
+    </script>
+    <!-------------  ENDS : => loader 1 ------------>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
